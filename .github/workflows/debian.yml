@@ -12,11 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        container: ["debian:10", "debian:11"]
+        container: ["debian:12", "debian:13"]
     container:
       image: ${{ matrix.container }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install dependencies
         run: |
           apt-get update && \
@@ -40,11 +40,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        container: ["debian:10", "debian:11"]
+        container: ["debian:12", "debian:13"]
     container:
       image: ${{ matrix.container }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Install dependencies
         run: |
           apt-get update && \

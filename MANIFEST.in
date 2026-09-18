@@ -1,6 +1,7 @@
 include CHANGELOG.rst
 include CONTRIBUTING.rst
 include LICENSE
+include src/ssdeep-lib/COPYING
 include README.rst
 include tox.ini
 graft docs

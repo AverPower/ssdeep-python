@@ -1,8 +1,8 @@
 [build-system]
-# Must be kept in sync with `setup_requirements` in `setup.py`
+# Build dependencies for the CFFI extension.
 requires = [
-    "setuptools>=40.8.0",
+    "setuptools>=77",
     "wheel",
-    "cffi>=1.4.1; python_implementation != 'PyPy'",
+    "cffi>=2.0.0; python_implementation != 'PyPy'",
 ]
 build-backend = "setuptools.build_meta"

@@ -1,14 +1,14 @@
 #!/usr/bin/env python
+import errno
 import glob
 import os
 import subprocess
 import sys
-import setuptools
-from distutils.sysconfig import get_config_vars
-from pkg_resources import parse_version
-from setuptools import Distribution as _Distribution, setup
+from sysconfig import get_config_vars
+
+from setuptools import Distribution as _Distribution
+from setuptools import setup
 from setuptools.command.build_ext import build_ext as _build_ext
-import errno
 
 try:
     from setuptools.command.build_clib import build_clib as _build_clib
@@ -144,22 +144,20 @@ with open(os.path.join(src_dir, "ssdeep", "__about__.py")) as f:
 with open(os.path.join(base_dir, "README.rst")) as f:
     long_description = f.read()
 
-# On some systems(e.g. Debian 8, CentOS 7) the setuptools package is very old.
-# We try to install an old version of pytest-runner without setuptools_scm dependency.
-# See: https://github.com/pytest-dev/pytest-runner/blob/master/CHANGES.rst
-if parse_version(setuptools.__version__) < parse_version("12"):
-    setup_requires = ["pytest-runner<2.4"]
-else:
-    setup_requires = ["pytest-runner"]
-
-
 setup(
     name=about["__title__"],
     version=about["__version__"],
+    python_requires=">=3.10",
 
     description=about["__summary__"],
     long_description=long_description,
-    license=about["__license__"],
+    # The distribution contains the LGPL-licensed Python wrapper and the
+    # bundled GPL-licensed ssdeep library.
+    license="LGPL-3.0-or-later AND GPL-2.0-only",
+    license_files=[
+        "LICENSE",
+        "src/ssdeep-lib/COPYING",
+    ],
     url=about["__uri__"],
 
     zip_safe=False,
@@ -167,27 +165,19 @@ setup(
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
-        "License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: 3.13",
+        "Programming Language :: Python :: 3.14",
         "Programming Language :: Python :: Implementation :: CPython",
-        "Programming Language :: Python :: Implementation :: PyPy",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     keywords="ssdeep",
     install_requires=[
-        "cffi>=1.0.0",
-    ],
-    setup_requires=[
-        "cffi>=1.0.0",
-    ] + setup_requires,
-    tests_require=[
-        "pytest",
+        "cffi>=2.0.0",
     ],
     extras_require={
         "docstest": [

@@ -71,14 +71,14 @@ If all requirements are met it is possible to install the wrapper by using pip o
 
 .. code-block:: console
 
-    $ pip install ssdeep
+    $ pip install ssdeep-python
 
 The build will fail if the ssdeep library isn't installed.
 To use the included version of the ssdeep library use the following command.
 
 .. code-block:: console
 
-    $ BUILD_LIB=1 pip install ssdeep
+    $ BUILD_LIB=1 pip install ssdeep-python
 
 For more information have a look at the `python-ssdeep documentation`_.
 
@@ -103,9 +103,11 @@ Feel free to use the prebuild `python-ssdeep documentation`_ or use the steps be
 Licensing
 =========
 
-The code is licensed under the terms of the LGPLv3+.
+The Python wrapper is licensed under the terms of the LGPLv3+.
 
-This wrapper includes the unchanged source distribution of `ssdeep version 2.14.1`_. It is licensed under the GPLv2.
+This distribution includes the unchanged source distribution of `ssdeep version 2.14.1`_.
+The bundled ssdeep library is licensed under the GPLv2. Both license texts are
+included in the installed distribution.
 
 .. _ssdeep by Jesse Kornblum: https://ssdeep-project.github.io/ssdeep/
 .. _ssdeep version 2.14.1: https://github.com/ssdeep-project/ssdeep/releases/tag/release-2.14.1
