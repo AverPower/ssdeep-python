@@ -151,6 +151,7 @@ setup(
 
     description=about["__summary__"],
     long_description=long_description,
+    long_description_content_type="text/x-rst",
     # The distribution contains the LGPL-licensed Python wrapper and the
     # bundled GPL-licensed ssdeep library.
     license="LGPL-3.0-or-later AND GPL-2.0-only",
