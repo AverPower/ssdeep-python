@@ -59,7 +59,7 @@ repos:
       # Forbid files which have a UTF-8 Unicode replacement character
       - id: text-unicode-replacement-char
 
-  - repo: https://gitlab.com/pycqa/flake8
+  - repo: https://github.com/pycqa/flake8
     rev: 3.8.2
     hooks:
       - id: flake8
