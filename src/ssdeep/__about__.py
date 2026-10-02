@@ -9,7 +9,7 @@ __all__ = [
     "__version__",
 ]
 
-__title__ = "ssdeep-python"
+__title__ = "ssdeep"
 __summary__ = "Python wrapper for the ssdeep library"
 __uri__ = "https://github.com/AverPower/ssdeep-python"
 

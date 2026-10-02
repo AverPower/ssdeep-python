@@ -99,7 +99,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: testpypi
-      url: https://test.pypi.org/p/ssdeep-python
+      url: https://test.pypi.org/p/ssdeep
     permissions:
       id-token: write
 
@@ -124,7 +124,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pypi
-      url: https://pypi.org/p/ssdeep-python
+      url: https://pypi.org/p/ssdeep
     permissions:
       id-token: write
 
